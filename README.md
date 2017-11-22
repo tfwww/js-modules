@@ -8,6 +8,7 @@ WMLabel.js
 <script src="wmlabel.js"></script>  
 
 使用方法
+
 var labelArray = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月']        
 var a = new WMLabel(labelArray.length)    
 
