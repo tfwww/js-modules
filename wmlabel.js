@@ -146,9 +146,9 @@ var WMLabel = function(numOfMon) {
         // html 模板处理
         function template(liItems) {
             return `<ul class="month-ul"> 
-                        <li class="control" data-direction="left">左</li>
+                        <li class="control" data-direction="left"><</li>
                         ${liItems}
-                        <li class="control" data-direction="right">右</li>                               
+                        <li class="control" data-direction="right">></li>                               
                     </ul>`
         }
 
