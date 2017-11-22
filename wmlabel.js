@@ -15,7 +15,7 @@ var hasClass = function(ele, className) {
     return qSel(ele).className.includes(className)
 }
 
-var WMLabel = function() {
+var WMLabel = function(numOfMon) {
     var self = this
 
     self.nextMonth = function(month) {
@@ -45,11 +45,12 @@ var WMLabel = function() {
     }
 
     self.monthsLabel = function(currentMonth) {
+        log('currentMonth', currentMonth)
         // 要显示多少个月
-        var numOfMon = 6
+        // var numOfMon = 7
         var month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         var beginInx = month.indexOf(currentMonth)
-        var result = month.slice(beginInx, beginInx + 6)
+        var result = month.slice(beginInx, beginInx + numOfMon)
         var len = result.length
         // 处理 8 月以后无法切全的情况
         if (len < numOfMon) {
@@ -60,22 +61,23 @@ var WMLabel = function() {
         return result
     }
 
-    self.preMonthsLabel = function(lastMonth) {
+    self.preMonthsLabel = function(lastMonth, ) {
         // 要显示多少个月
-        var numOfMon = 6, 
-            month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        // var numOfMon = 7, 
+
+        var month = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             result = []
         var endInx = month.indexOf(lastMonth)
         var end = endInx + 1   
 
         // 处理 5 月之前无法切全的情况
-        if (lastMonth < 6) {
+        if (lastMonth < numOfMon) {
             var tmp = month.slice(0, end)
             var offset = numOfMon - tmp.length
             var tmpEnd = month.slice(-offset)
             result = tmpEnd.concat(tmp)
         } else {                         
-            result = month.slice(end - 6, end)                
+            result = month.slice(end - numOfMon, end)                
         }           
         return result
     }
